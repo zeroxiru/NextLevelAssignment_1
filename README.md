@@ -109,11 +109,16 @@ Just like when we used a type alias above, the example works just as if we had u
 
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an `interface` are available in `type`, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
 
-![image.png](attachment:f378bd63-9b45-40ad-9293-d5e2bb460221:image.png)
+✅ 1. Extending and Merging
+Feature	                            Interface	                                           Type Alias
+Extending	Can extend other interfaces or be extended multiple times.	Can extend via intersection (&) but cannot be reopened.
+Declaration Merging	                   ✅ Yes                                              	❌ No
 
-1. 
 
-![image.png](attachment:6c29b050-71a4-4fe0-9894-b65f9ec3b2b5:image.png)
+✅ 2. Use Cases
+                                      Scenario	                                             Recommendation
+                              Objects/Classes with behavior	                                 Use interface
+                             Union/Intersection types, primitives, tuples	                   Use type
 
 1. 
 2. What is the use of the `keyof` keyword in TypeScript? Provide an example.
