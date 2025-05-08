@@ -105,20 +105,37 @@ For example, here’s a function that takes a point-like object:
 
 Just like when we used a type alias above, the example works just as if we had used an anonymous object type. TypeScript is only concerned with the *structure* of the value we passed to `printCoord` - it only cares that it has the expected properties.
 
-### Differences Between Type Aliases and Interfaces
+# 🔍 Type Aliases vs Interfaces in TypeScript
 
-Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an `interface` are available in `type`, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
+Type aliases and interfaces are very similar, and in many cases, you can choose either. However, there are some key distinctions that make each suited for different use cases.
 
-✅ 1. Extending and Merging
-Feature	                            Interface	                                           Type Alias
-Extending	Can extend other interfaces or be extended multiple times.	Can extend via intersection (&) but cannot be reopened.
-Declaration Merging	                   ✅ Yes                                              	❌ No
+---
 
+## ✅ 1. Extending and Merging
 
-✅ 2. Use Cases
-                                      Scenario	                                             Recommendation
-                              Objects/Classes with behavior	                                 Use interface
-                             Union/Intersection types, primitives, tuples	                   Use type
+| Feature              | Interface                                      | Type Alias                                       |
+|----------------------|-----------------------------------------------|--------------------------------------------------|
+| **Extending**         | Can extend other interfaces or be extended multiple times | Can extend via intersection (`&`), but **cannot be reopened** |
+| **Declaration Merging** | ✅ Yes                                     | ❌ No                                             |
+
+---
+
+## ✅ 2. Use Cases
+
+| Scenario                                      | Recommendation |
+|----------------------------------------------|----------------|
+| Objects or classes with behavior             | Use `interface` |
+| Union / Intersection types, primitives, tuples | Use `type`      |
+
+---
+
+## 🧠 Summary
+
+- Use **`interface`** when defining the shape of an object or a class, especially when expecting extensions or merging.
+- Use **`type`** when combining types or working with unions, intersections, tuples, or primitives.
+
+> ✅ **Tip**: Interfaces are better when working with public APIs and class structures, while types shine in advanced type transformations.
+
 
 1. 
 2. What is the use of the `keyof` keyword in TypeScript? Provide an example.
